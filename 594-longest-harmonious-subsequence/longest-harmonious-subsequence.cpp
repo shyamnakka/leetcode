@@ -3,7 +3,7 @@ public:
     int findLHS(vector<int>& nums) {
         map<int,int>mpp;
         int maxsum=0,sum=0;
-        sort(nums.begin(),nums.end());
+        
         for(auto i:nums){
             mpp[i]++;
         }
