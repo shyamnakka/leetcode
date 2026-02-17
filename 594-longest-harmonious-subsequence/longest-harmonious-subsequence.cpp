@@ -1,22 +1,19 @@
 class Solution {
 public:
     int findLHS(vector<int>& nums) {
-        map<int,int>mpp;
-        int maxsum=0,sum=0;
-        
+        unordered_map<int,int>mpp;
+        int sum=0,maxsum=0;
         for(auto i:nums){
             mpp[i]++;
         }
-        for(auto it=mpp.begin();it!=mpp.end();){
-            auto next=it;
-            next++;
-            if(next==mpp.end()) break;
-            if(next->first-it->first==1){
-                sum=it->second+next->second;
-                maxsum=max(maxsum,sum);
+        for(auto it:mpp){
+            int x=it.first;
+            if(mpp.count(x+1)){
+                sum=mpp[x]+mpp[x+1];
+                maxsum=max(sum,maxsum);
             }
-            it++;
         }
         return maxsum;
+    
     }
 };
