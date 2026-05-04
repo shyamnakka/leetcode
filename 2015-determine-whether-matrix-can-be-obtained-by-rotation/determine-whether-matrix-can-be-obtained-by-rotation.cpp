@@ -8,13 +8,14 @@ public:
                     possible=true;
                     break;
             } 
-            vector<vector<int>>ans(n,vector<int>(n)); 
             for(int i=0;i<n;i++){
-                for(int j=0;j<n;j++){
-                    ans[i][j]=mat[n-1-j][i];
+                for(int j=i+1;j<n;j++){
+                    swap(mat[i][j],mat[j][i]);
                 }
             }
-            mat=ans;
+            for(int i=0;i<n;i++){
+                reverse(mat[i].begin(),mat[i].end());
+            }
         }
         
         if(possible) return true;
