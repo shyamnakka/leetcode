@@ -7,7 +7,7 @@ public:
             if(s[i]=='('){
                 cnt++;
             }
-            else if(s[i]==')'){
+            if(s[i]==')'){
                 cnt--;
             }
             maxi=max(maxi,cnt);
